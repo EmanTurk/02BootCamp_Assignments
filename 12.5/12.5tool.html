@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: justify;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .tooltip {
+            position: relative;
+            color: blue; 
+            cursor: pointer;
+        }
+
+        .tooltip::before {
+            content: "Read carefully";
+            position: absolute;
+            background-color: pink;
+            color: white;
+            border-radius: 3px;
+            padding: 6px 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px; 
+            z-index: 1;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            border-width: 10px;
+            border-style: solid;
+            border-color: pink transparent transparent transparent;
+            bottom: 0; 
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip:hover::before {
+            opacity: 1;
+        }
+        h1{
+            align-content: center;
+            padding-left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey There</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod mattis massa, eu laoreet nunc laoreet vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vestibulum ipsum ac magna convallis, in dictum ipsum bibendum. Nam <span class="tooltip">elementum</span> justo in augue cursus, ac malesuada sem viverra. Nulla facilisi. Sed vel justo nec <span class="tooltip">varius</span> pharetra. Duis consectetur, sapien eget interdum tincidunt, quam nulla consectetur lectus, ac mattis purus erat a dui. Fusce ac nisi dui. Nam <span class="tooltip">tempor</span> diam et libero consectetur fermentum. Etiam sagittis ligula sit amet libero cursus, at cursus sapien tincidunt. Vivamus viverra interdum mauris, vel gravida dolor convallis at. Vestibulum ac orci euismod, vehicula ligula eu, bibendum elit. Vivamus eget lorem eu odio pharetra hendrerit a a turpis. Pellentesque sollicitudin magna id arcu lobortis, vel fermentum nisi volutpat.</p>
+    </div>
+</body>
+</html>
